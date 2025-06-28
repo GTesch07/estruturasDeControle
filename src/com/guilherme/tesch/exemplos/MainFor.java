@@ -6,16 +6,11 @@ public class MainFor {
     public static void main(String[]args){
         var scanner = new Scanner(System.in);
       
-        for(var i = 200;i >= 0 ;i -=2 ){
+        for(var i = 0;i <= 100;i ++){
            
             
             System.out.println(i);
         }
-       
-       
-       
-       
-       
        
        
         /*for(;;){
