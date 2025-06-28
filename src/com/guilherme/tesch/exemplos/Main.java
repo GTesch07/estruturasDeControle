@@ -2,20 +2,22 @@ package com.guilherme.tesch.exemplos;
 
 import java.util.Scanner;
 
+import com.guilherme.tesch.modelos.Habilitacao;
+
 public class Main {
     public static void main(String[]args){
         var scanner = new Scanner(System.in);
-
+        Habilitacao habilitacao = new Habilitacao(null, 0);
         System.out.println("Informe seu nome: ");
-        var name = scanner.next();
+        habilitacao.setName(scanner.nextLine());
         System.out.println("Informe sua idade: ");
-        var age =scanner.nextInt();
+        habilitacao.setAge(scanner.nextInt());
         boolean isEmancipated = false;
         var message = "";
 
 
 
-        if(age >= 16 && age < 18){
+        if(habilitacao.getAge() >= 16 && habilitacao.getAge() < 18){
             String resposta;
             while (true) {
                 System.out.println("Você é emancipado? (S/N)");
@@ -32,18 +34,18 @@ public class Main {
             }
         }
     }
-        var canDrive = (age >= 18) || (age >= 16 && isEmancipated);
+        var canDrive = (habilitacao.getAge() >= 18) || (habilitacao.getAge() >= 16 && isEmancipated);
 
           if (canDrive) {
              message = String.format("""
                Bem vindo, %s!
                %s, você tem %s e pode dirigir.
-               """,name,name,age);
+               """,habilitacao.getName(),habilitacao.getName(),habilitacao.getAge());
         
             }else{
                 message = String.format("""
                 %s, você não pode dirigir.
-                """,name);
+                """,habilitacao.getName());
                 }
         
    
